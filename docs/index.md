@@ -24,36 +24,33 @@
 
 __Read CSV file__ `df = pd.read_csv('data.csv')`
 
-*Assigns data.csv to a dataframe called 'df'.
+* Assigns data.csv to a dataframe called 'df'.
 
-<details>
 
-<summary>Additional Arguments</summary>
 
-<br>
+_Additional Arguments_
 
-__Specify header__
+>>__Specify header__
+>>
+>>* The code below will assume the csv file has no column names (only data) thus _'df'_ column names will be numbers
+>>`df = pd.read_csv('data.csv', header=None)`
+>><br>
+>>
+>>* The code below will assume the first two lines in the CSV file are headers.
+>>`df = pd.read_csv('data.csv', header=[0,1])`
+>>
+>>__Skip rows__
+>>* The code below will ignore the first two rows in the CSV >>file.
+>>`pd.read_csv('data.csv', skiprows=2, header=None)`
+>>
+>>__Encoding__
+>>* The code below will read the csv file in the [encoding]>>(https://docs.python.org/3/library/codecs.html#standard-encodings) specified.
+>>`pd.read_csv('data.csv', encoding ='utf-8')`
+>>
+>>__Encoding Errors__
+>>* The code below will ignore any special characters it doesn't recognize. 
+>>`pd.read_csv('data.csv', encoding_errors ='ignore')`
 
-* The code below will assume the csv file has no column names (only data) thus _'df'_ column names will be numbers
-`df = pd.read_csv('data.csv', header=None)`
-<br>
-
-* The code below will assume the first two lines in the CSV file are headers.
-`df = pd.read_csv('data.csv', header=[0,1])`
-
-__Skip rows__
-* The code below will ignore the first two rows in the CSV file.
-`pd.read_csv('data.csv', skiprows=2, header=None)`
-
-__Encoding__
-* The code below will read the csv file in the [encoding](https://docs.python.org/3/library/codecs.html#standard-encodings) specified.
-`pd.read_csv('data.csv', encoding ='utf-8')`
-
-__Encoding Errors__
-* The code below will ignore any special characters it doesn't recognize. 
-`pd.read_csv('data.csv', encoding_errors ='ignore')`
-
-</details>
 
 ---
 
@@ -82,18 +79,16 @@ __Describe__ `df.describe()`
 __Value Counts__ `df['column_one'].value_counts()`
 * Gives the count of each unique value in _column_one_.
 
-<details>
-<summary>Additional Arguments</summary>
-<br>
-
-__Ascending__
-* The code below will give the number of unique values in ascending order.
-`df['column_one'].value_counts(ascending=True)`
-
-__Normalize__
-
-* The code below will give the number of unique values in percentages rather than raw count.
-`df['column_one'].value_counts(normalize=True)`
+_Additional Arguments_
+>>
+>>__Ascending__
+>>* The code below will give the number of unique values in ascending order.
+>>`df['column_one'].value_counts(ascending=True)`
+>>
+>>__Normalize__
+>>
+>>* The code below will give the number of unique values in percentages rather than raw count.
+>>`df['column_one'].value_counts(normalize=True)`
 <br>
 
 __Continuous Data__
@@ -126,17 +121,11 @@ __Show column(s)__ `df['column_one']`
 
 * Displays the _column_one_ from _df_.
 
-<details>
-<summary>Additional Arguments</summary>
-
-<br>
-
-__Multiple columns__
-* The code below will display both _column_one_ and _column_two_.
-`df[['column_one','column_two']]`
-
-</details>
-
+_Additional Arguments_
+>>__Multiple columns__
+>>* The code below will display both _column_one_ and _column_two_.
+>>`df[['column_one','column_two']]`
+>>
 <br>
 
 ### Pandas functions to locate data with loc[] and iloc[]
@@ -234,28 +223,25 @@ ___Note:__ In order to format these functions to multiple columns at once, the d
 
 __Drop NA__ `df.dropna()`
 * drops all rows that contain null values
-<details>
-<summary> Additional Arguments</summary>
 
-* `df.dropna(axis=1)` drops all columns that contain null values
-* `df.dropna(thresh=n)` drops all rows have have less than n non null values
 
-</details>
+_Additional Arguments_
+>>* `df.dropna(axis=1)` drops all columns that contain null values
+>>* `df.dropna(thresh=n)` drops all rows have have less than n non null values
+>>
 <br>
 
 __Fill NA__ `df.fillna(x)`
 * Replace all null values with x
 
-<details>
-<summary> Additional Arguments</summary>
-
-* `df['Country'].fillna(method = ffill)` fills NA value with the value above the NA value.
-
-* `df['Country'].fillna(method = bfill)` fills NA value with the value below the NA value.
-
-* `df['Income'].fillna(df['Income'].mean())` drops all rows have have less than n non null values
-
-</details>
+_Additional Arguments_
+>>
+>>* `df['Country'].fillna(method = ffill)` fills NA value with the value above the NA value.
+>>
+>>* `df['Country'].fillna(method = bfill)` fills NA value with the value below the NA value.
+>>
+>>* `df['Income'].fillna(df['Income'].mean())` drops all rows have have less than n non null values
+>>
 <br>
 
 ### Group By
