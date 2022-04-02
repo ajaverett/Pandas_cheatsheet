@@ -318,9 +318,6 @@ This code will group _df_ by gender using the mean of the column data. This may 
 __Pivot Table__
 Assume a table with the columns: Region, gadget_type, and Units. 
 
-<details>
-
-<summary> See table below </summary>
 
 |    | Region   | gadget_type   |   Units |
 |---:|:---------|:--------------|--------:|
@@ -337,7 +334,6 @@ Assume a table with the columns: Region, gadget_type, and Units.
 | 10 | West     | osmit         |      30 |
 | 11 | North    | osmit         |      32 |
 
-</details>
 
 <br>
 This table can be aggregated in a way similar to the groupby function above. The largest difference between these two functions is that pivot_table utilizes the columns for the aggregation.
@@ -353,7 +349,6 @@ dat.pivot_table(
     columns = 'gadget_type',
     aggfunc = 'size')
 ```
-<details>
 
 | Region   |   osmit |   radok |
 |:---------|--------:|--------:|
@@ -363,7 +358,6 @@ dat.pivot_table(
 | West     |       2 |       1 |
 
 _This, for example, shows there are 2 rows that have osmit and East._
-</details>
 
 <br>
 
@@ -376,7 +370,6 @@ dat.pivot_table(
     aggfunc = 'mean')
 ```
 
-<details>
 
 
 | Region   |   ('Units', 'osmit') |   ('Units', 'radok') |
@@ -387,7 +380,7 @@ dat.pivot_table(
 | West     |                   27 |                   16 |
 
 _This, for example, shows that the average for all units of osmits in the East is 25._
-</details>
+
 
 
 ---
