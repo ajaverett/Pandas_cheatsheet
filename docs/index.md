@@ -10,7 +10,7 @@
     + [Pandas functions to inspect data](#pandas-functions-to-inspect-data)
 - [Select Data](#select-data)
     + [Pandas functions to select data](#pandas-functions-to-select-data)
-    + [Pandas functions to locate data with loc[] and iloc[]](#pandas-functions-to-locate-data-with-loc---and-iloc--)
+    + [Pandas functions to locate data with loc and iloc](#pandas-functions-to-locate-data-with-loc-and-iloc)
 - [Cleaning Data](#cleaning-data)
     + [Pandas functions to clean columns](#pandas-functions-to-clean-columns)
     + [Pandas functions to clean NaN values](#pandas-functions-to-clean-nan-values)
@@ -128,7 +128,7 @@ _Additional Arguments_
 >>
 <br>
 
-### Pandas functions to locate data with loc[] and iloc[]
+### Pandas functions to locate data with loc and iloc
 
 <br>
 
@@ -149,10 +149,14 @@ __Locating data with loc[]__:
 
 ___Note 1:__ The above code assumes that the row index names are numbers. If the index row names were letters, `df.loc['A',:]` would display row _A_._
 
-
-
 ___Note 2:__ loc[] can be used with just one argument. Pandas assumes you are only sifting through rows and will by default display all column values respective to the rows._
 
+___Note 3:__ loc[] is very similar to `df.filter(items = x)`. For example:_
+`df.filter(items=['First Name', 'Last Name'])` and 
+`df.filter(items=[1,2,3], axis = 0)` are similar to 
+
+`df.loc[:,['First Name','Last Name']]` and
+`df.loc[[1,2,3],:]` respectively.
 <br>
 
 
@@ -244,6 +248,33 @@ _Additional Arguments_
 >>
 <br>
 
+# Manipulating Data
+
+
+### Query
+
+`df.query("Income >= 12000")`
+This code will display all rows with an income greater or equal to 12,000.
+
+`df.query("Region == 'East'")`
+This code will display all rows with the region being East.
+
+`df.query("not (Race == 'White' and Gender == 'Male')")`
+This code will display all rows with the race and gender being not White and Male.
+
+### Sort Values
+
+`df.sort_values('Income')`
+This code will sort values by Income in ascending order
+
+`df.sort_values('Income', ascending=False)` 
+This code will sort values by Income in descending order
+
+`df.sort_values(['Income','Name'],ascending=[True,False])` 
+This code will sort values by Income in ascending order and then sort names in alphabetical order
+
+___Note__: All numerical data is automatically sorted from least to greatest while string values are automatically sorted alphabetically._
+
 ### Group By
 
 Assume the columns: Gender, Num_Gadgets_made, Income
@@ -257,6 +288,82 @@ This code will group _df_ by gender using the count of the column data. This may
 
 __Group By with Mean__ `df.groupby('Gender').mean()`
 This code will group _df_ by gender using the mean of the column data. This may be useful to compare the average Income by gender.
+
+
+### Pivot Table
+Assume a table with the columns: Region, gadget_type, and Units. 
+
+<details>
+
+<summary> See table below </summary>
+
+|    | Region   | gadget_type   |   Units |
+|---:|:---------|:--------------|--------:|
+|  0 | North    | radok         |      10 |
+|  1 | South    | osmit         |      12 |
+|  2 | East     | radok         |      14 |
+|  3 | West     | radok         |      16 |
+|  4 | North    | osmit         |      18 |
+|  5 | South    | radok         |      20 |
+|  6 | East     | osmit         |      22 |
+|  7 | West     | osmit         |      24 |
+|  8 | South    | radok         |      26 |
+|  9 | East     | osmit         |      28 |
+| 10 | West     | osmit         |      30 |
+| 11 | North    | osmit         |      32 |
+
+</details>
+
+<br>
+This table can be aggregated in a way similar to the groupby function above. The largest difference between these two functions is that pivot_table utilizes the columns for the aggregation.
+
+<br>
+<br>
+
+__Seeing the count for the gadget_type for each region__
+
+```
+dat.pivot_table(
+    index = 'Region', 
+    columns = 'gadget_type',
+    aggfunc = 'size')
+```
+<details>
+
+| Region   |   osmit |   radok |
+|:---------|--------:|--------:|
+| East     |       2 |       1 |
+| North    |       2 |       1 |
+| South    |       1 |       2 |
+| West     |       2 |       1 |
+
+_This, for example, shows there are 2 rows that have osmit and East._
+</details>
+
+<br>
+
+__Seeing the mean for the gadget_type for each region__
+
+```
+dat.pivot_table(
+    index = 'Region', 
+    columns = 'gadget_type',
+    aggfunc = 'mean')
+```
+
+<details>
+
+
+| Region   |   ('Units', 'osmit') |   ('Units', 'radok') |
+|:---------|---------------------:|---------------------:|
+| East     |                   25 |                   14 |
+| North    |                   25 |                   10 |
+| South    |                   12 |                   23 |
+| West     |                   27 |                   16 |
+
+_This, for example, shows that the average for all units of osmits in the East is 25._
+</details>
+
 
 ---
 
