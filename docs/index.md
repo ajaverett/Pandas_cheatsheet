@@ -381,6 +381,24 @@ dat.pivot_table(
 
 _This, for example, shows that the average for all units of osmits in the East is 25._
 
+---
+
+# Combining Data
+
+### Pandas functions to combine dataframes vertically and horizontally
+
+`df1.append(df2)`
+
+Add the rows in df1 to the end of df2 (columns should be identical)
+
+<img src="chart1.png" width="" height="250">
+
+`pd.concat([df1, df2],axis=1)`
+
+Add the columns in df1 to the end of df2 (rows should be identical)
+
+<img src="chart2.png" width="" height="250">
+
 
 
 ---
