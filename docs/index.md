@@ -6,11 +6,11 @@
 ### Table of Contents
 - [Importing Data](#importing-data)
     + [Pandas functions to import  data](#pandas-functions-to-import--data)
-- [Inspect Data](#inspect-data)
+- [Inspecting Data](#inspecting-data)
     + [Pandas functions to inspect data](#pandas-functions-to-inspect-data)
 - [Calculating Data](#calculating-data)
     + [Pandas functions to do statistical calculations with data](#pandas-functions-to-do-statistical-calculations-with-data)
-- [Select Data](#select-data)
+- [Selecting Data](#selecting-data)
     + [Pandas functions to select data](#pandas-functions-to-select-data)
     + [Pandas functions to locate data with loc and iloc](#pandas-functions-to-locate-data-with-loc-and-iloc)
 - [Cleaning Data](#cleaning-data)
@@ -61,7 +61,7 @@ _Additional Arguments_
 
 ---
 
-# Inspect Data
+# Inspecting Data
 
 ### Pandas functions to inspect data
 <br>
@@ -128,7 +128,7 @@ These are basic calculations that can be used in various function.
 
 ---
 
-# Select Data
+# Selecting Data
 
 
 ### Pandas functions to select data 
