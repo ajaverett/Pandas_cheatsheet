@@ -106,6 +106,19 @@ More tricks [here](https://re-thought.com/pandas-value_counts/)
 
 ---
 
+# Calculating Data
+
+These are basic calculations that can be used in various function.
+
+`df['Income'].mean()`  Gives the average income.
+`df.count() ` Gives the number of non-null values in each column
+`df.max() ` Gives the highest value in each column
+`df.min() ` Gives the lowest value in each column
+`df.median() ` Gives the median of each column
+`df['Income'].std() ` Gives the standard deviation of the income column
+
+---
+
 # Select Data
 
 
@@ -197,7 +210,6 @@ ___Note 2:__ loc[] can be used with just one argument. Pandas assumes you are on
 
 # Cleaning Data
 
-
 ### Pandas functions to clean columns 
 
 <br>
@@ -248,10 +260,13 @@ _Additional Arguments_
 >>
 <br>
 
+---
+
 # Manipulating Data
 
+### Pandas functions to select columns from an expression
 
-### Query
+__Query__
 
 `df.query("Income >= 12000")`
 This code will display all rows with an income greater or equal to 12,000.
@@ -262,7 +277,7 @@ This code will display all rows with the region being East.
 `df.query("not (Race == 'White' and Gender == 'Male')")`
 This code will display all rows with the race and gender being not White and Male.
 
-### Sort Values
+__Sort Values__
 
 `df.sort_values('Income')`
 This code will sort values by Income in ascending order
@@ -275,7 +290,9 @@ This code will sort values by Income in ascending order and then sort names in a
 
 ___Note__: All numerical data is automatically sorted from least to greatest while string values are automatically sorted alphabetically._
 
-### Group By
+### Pandas functions to select aggregated columns
+
+__Group By__
 
 Assume the columns: Gender, Num_Gadgets_made, Income
 
@@ -290,7 +307,7 @@ __Group By with Mean__ `df.groupby('Gender').mean()`
 This code will group _df_ by gender using the mean of the column data. This may be useful to compare the average Income by gender.
 
 
-### Pivot Table
+__Pivot Table__
 Assume a table with the columns: Region, gadget_type, and Units. 
 
 <details>
