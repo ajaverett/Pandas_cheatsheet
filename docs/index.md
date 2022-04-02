@@ -252,7 +252,8 @@ __Drop NA__ `df.dropna()`
 
 _Additional Arguments_
 >>* `df.dropna(axis=1)` drops all columns that contain null values
->>* `df.dropna(thresh=n)` drops all rows have have less than n non null values
+>>* `df.dropna(thresh=n)` drops all rows that have less than n non null values
+>>* `df.dropna(subset=['name', 'address'])` drops all rows where there are null values in the name and address columns.
 >>
 <br>
 
