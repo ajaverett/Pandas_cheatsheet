@@ -4,8 +4,6 @@
 ---
 
 ### Table of Contents
-- [Pandas Cheatsheet](#pandas-cheatsheet)
-    + [Table of Contents](#table-of-contents)
 - [Importing Data](#importing-data)
     + [Pandas functions to import  data](#pandas-functions-to-import--data)
 - [Inspect Data](#inspect-data)
@@ -21,6 +19,9 @@
 - [Manipulating Data](#manipulating-data)
     + [Pandas functions to select columns from an expression](#pandas-functions-to-select-columns-from-an-expression)
     + [Pandas functions to select aggregated columns](#pandas-functions-to-select-aggregated-columns)
+- [Combining Data](#combining-data)
+    + [Pandas functions to combine dataframes vertically and horizontally](#pandas-functions-to-combine-dataframes-vertically-and-horizontally)
+    + [Pandas functions to merge dataframes on a key](#pandas-functions-to-merge-dataframes-on-a-key)
 
 ---
 
@@ -387,17 +388,44 @@ _This, for example, shows that the average for all units of osmits in the East i
 
 ### Pandas functions to combine dataframes vertically and horizontally
 
-`df1.append(df2)`
+<br>
+
+__Append__ `df1.append(df2)`
 
 Add the rows in df1 to the end of df2 (columns should be identical)
 
 <img src="chart1.png" width="" height="250">
 
-`pd.concat([df1, df2],axis=1)`
+<br>
+<br>
+<br>
+
+__Concat__ `pd.concat([df1, df2],axis=1)`
 
 Add the columns in df1 to the end of df2 (rows should be identical)
 
 <img src="chart2.png" width="" height="250">
+
+<br>
+<br>
+
+### Pandas functions to merge dataframes on a key
+
+<img src="join-or-merge-in-python-pandas-1.png" width="" height="100" alt= 'credit: https://www.datasciencemadesimple.com/join-merge-data-frames-pandas-python/'>
+
+<br>
+<br>
+
+___Note__: There are multiple ways to merge dataframes. The key column is based on a designated column. If two dataframes have a key column that are of the same type, these dataframes can be merged together. For the code below, the key column is determined by the "on" parameter and the method of the merge is determined by the "how" parameter._
+
+__Inner Join__ `df1.merge(df2, on='ID')`
+The code above will merge both df1 and df2 together when both dataframes share the same key values.
+
+__Left Join__ `df1.merge(df2, how='left', on='ID')`
+The code above will merge both df1 and df2 together based on the key values of df1.
+
+__Full Join__ `df1.merge(df2, how='full', on='ID')`
+The code above will merge both df1 and df2 together using both all key values.
 
 
 
