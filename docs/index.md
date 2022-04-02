@@ -4,17 +4,23 @@
 ---
 
 ### Table of Contents
+- [Pandas Cheatsheet](#pandas-cheatsheet)
+    + [Table of Contents](#table-of-contents)
 - [Importing Data](#importing-data)
     + [Pandas functions to import  data](#pandas-functions-to-import--data)
 - [Inspect Data](#inspect-data)
     + [Pandas functions to inspect data](#pandas-functions-to-inspect-data)
+- [Calculating Data](#calculating-data)
+    + [Pandas functions to do statistical calculations with data](#pandas-functions-to-do-statistical-calculations-with-data)
 - [Select Data](#select-data)
     + [Pandas functions to select data](#pandas-functions-to-select-data)
     + [Pandas functions to locate data with loc and iloc](#pandas-functions-to-locate-data-with-loc-and-iloc)
 - [Cleaning Data](#cleaning-data)
     + [Pandas functions to clean columns](#pandas-functions-to-clean-columns)
     + [Pandas functions to clean NaN values](#pandas-functions-to-clean-nan-values)
-    + [Group By](#group-by)
+- [Manipulating Data](#manipulating-data)
+    + [Pandas functions to select columns from an expression](#pandas-functions-to-select-columns-from-an-expression)
+    + [Pandas functions to select aggregated columns](#pandas-functions-to-select-aggregated-columns)
 
 ---
 
@@ -107,6 +113,8 @@ More tricks [here](https://re-thought.com/pandas-value_counts/)
 ---
 
 # Calculating Data
+
+### Pandas functions to do statistical calculations with data
 
 These are basic calculations that can be used in various function.
 
