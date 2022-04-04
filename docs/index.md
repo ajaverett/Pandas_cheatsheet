@@ -15,6 +15,7 @@
     + [Pandas functions to locate data with loc and iloc](#pandas-functions-to-locate-data-with-loc-and-iloc)
 - [Cleaning Data](#cleaning-data)
     + [Pandas functions to clean columns](#pandas-functions-to-clean-columns)
+    + [Pandas functions to clean row values](#pandas-functions-to-clean-row-values)
     + [Pandas functions to clean NaN values](#pandas-functions-to-clean-nan-values)
 - [Manipulating Data](#manipulating-data)
     + [Pandas functions to select columns from an expression](#pandas-functions-to-select-columns-from-an-expression)
