@@ -58,6 +58,14 @@ _Additional Arguments_
 >>* The code below will ignore any special characters it doesn't recognize. 
 >>`pd.read_csv('data.csv', encoding_errors ='ignore')`
 
+<br>
+
+__Read CSV from a website__
+```
+url = 'https://raw.githubusercontent.com/davendano99/Line-Chart-Practice/main/data.csv.csv'
+
+dat_temp = pd.read_csv(url)
+```
 
 ---
 
