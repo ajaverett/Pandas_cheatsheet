@@ -244,11 +244,21 @@ ___Note:__ In order to format these functions to multiple columns at once, the d
         })
 ```
 
+### Pandas functions to clean row values 
+
+__Replace values__ `df = df.replace('M', 'Male')`
+* Replaces all instances of _M_ to _Male_ in rows.
+
+_Additional Arguments_
+
+>>* `df['Gender'] = df['Gender'].replace('M', 'Male')` Replaces all instances of _M_ to _Male_ in the Gender column.
+>>
+>>* `df['Age'] = df['Age'].replace('0',np.nan)` Replaces all instances of a _0_ age with a NaN value.
+>>
 ### Pandas functions to clean NaN values 
 
 __Drop NA__ `df.dropna()`
-* drops all rows that contain null values
-
+* Drops all rows that contain null values
 
 _Additional Arguments_
 >>* `df.dropna(axis=1)` drops all columns that contain null values
